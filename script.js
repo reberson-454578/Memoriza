@@ -12,6 +12,14 @@ let flippedCards = [];
 let matchedCards = 0;
 let moves = 0;
 
+// Recupera o recorde do localStorage ou define como infinito se não houver
+let record = localStorage.getItem("record")
+  ? parseInt(localStorage.getItem("record"))
+  : Infinity;
+document.getElementById("record").textContent = `Recorde: ${
+  record === Infinity ? "--" : record
+}`;
+
 const flipSound = new Audio("flip.mp3");
 const matchSound = new Audio("match.mp3");
 const winSound = new Audio("win.mp3");
@@ -74,13 +82,13 @@ function checkForMatch() {
     playSound(matchSound);
     flippedCards = [];
 
-    // Verifica se o jogo foi vencido após um pequeno delay para garantir a sincronia com a animação
     setTimeout(() => {
       if (matchedCards === cards.length) {
         playSound(winSound);
+        checkForRecord();
         showVictoryModal();
       }
-    }, 300); // Tempo de espera para a animação de virar a carta
+    }, 300);
   } else {
     flippedCards.forEach(({ card }) => card.classList.add("incorrect"));
     setTimeout(() => {
@@ -88,7 +96,15 @@ function checkForMatch() {
         card.classList.remove("flipped", "incorrect");
       });
       flippedCards = [];
-    }, 1000); // Espera 1 segundo para virar a carta de volta antes de continuar
+    }, 1000);
+  }
+}
+
+function checkForRecord() {
+  if (moves < record) {
+    record = moves;
+    localStorage.setItem("record", record); // Salva o recorde no localStorage
+    document.getElementById("record").textContent = `Recorde: ${record}`;
   }
 }
 
@@ -138,16 +154,6 @@ function handleCategorySelection(event) {
   }
 }
 
-// Função para fechar o modal de categorias
-document
-  .getElementById("close-category-modal")
-  .addEventListener("click", () => {
-    document.getElementById("category-modal").classList.add("hidden");
-    document
-      .querySelector("#category-modal .modal-content")
-      .classList.remove("show");
-  });
-
 document
   .getElementById("restart-button")
   .addEventListener("click", handleRestartClick);
@@ -162,6 +168,21 @@ document.getElementById("category-button").addEventListener("click", () => {
 });
 document.querySelectorAll(".category-option").forEach((button) => {
   button.addEventListener("click", handleCategorySelection);
+});
+
+document
+  .getElementById("close-category-modal")
+  .addEventListener("click", () => {
+    document.getElementById("category-modal").classList.add("hidden");
+    document
+      .querySelector("#category-modal .modal-content")
+      .classList.remove("show");
+  });
+
+// Função para fechar o modal de vitória
+document.getElementById("close-victory-modal").addEventListener("click", () => {
+  document.getElementById("victory-modal").classList.add("hidden");
+  document.querySelector(".modal-content").classList.remove("show");
 });
 
 window.onload = () => {

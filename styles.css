@@ -393,3 +393,20 @@ h1 {
 .close-button:hover {
   color: #e05b52;
 }
+
+/* Adicionar estilos para a nova label de Recorde */
+.info-panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 1.2em;
+  width: 70%; /* Ajustar largura para caber ambas as labels */
+  margin: 0 auto;
+  color: #555;
+  background-color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  gap: 20px; /* Adiciona espaçamento entre as labels */
+}

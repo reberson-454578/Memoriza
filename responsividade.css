@@ -5,8 +5,8 @@
   .game-container {
     max-width: 90%;
     padding: 10px;
-    margin-top: 20px; /* Reduz o espaço acima do contêiner do jogo */
-    margin-bottom: 20px; /* Igual ao espaço de baixo */
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 
   h1 {
@@ -16,6 +16,8 @@
   .info-panel {
     font-size: 1em;
     padding: 6px 12px;
+    gap: 10px; /* Ajuste do espaço entre as labels */
+    width: 70%;
   }
 
   .game-board {
@@ -74,15 +76,19 @@
 
 /* Ajustes para telas muito pequenas (smartphones em modo retrato) */
 @media (max-width: 480px) {
-  body {
-    height: 95vh;
-  }
-
   .game-container {
     max-width: 85%;
     padding: 5px;
-    margin-top: 10px; /* Reduz o espaço acima para igualar com o de baixo */
-    margin-bottom: 10px; /* Igual ao espaço de baixo */
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .card {
+    box-shadow: none;
+  }
+
+  .info-panel {
+    box-shadow: none;
   }
 
   h1 {
@@ -92,7 +98,8 @@
   .info-panel {
     font-size: 0.9em;
     padding: 4px 8px;
-    width: 50%;
+    width: 90%;
+    gap: 8px; /* Ajuste do espaço entre as labels */
     margin: 0 auto;
   }
 
@@ -105,6 +112,14 @@
   .card {
     width: 60px;
     height: 60px;
+  }
+
+  .card-inner {
+    transition: transform 0.2s ease-in-out; /* Reduzindo a duração da transição */
+  }
+
+  .card {
+    will-change: transform; /* Otimiza a rotação da carta */
   }
 
   .card-front,
