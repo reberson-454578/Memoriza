@@ -5,6 +5,8 @@
   .game-container {
     max-width: 90%;
     padding: 10px;
+    margin-top: 20px; /* Reduz o espaço acima do contêiner do jogo */
+    margin-bottom: 20px; /* Igual ao espaço de baixo */
   }
 
   h1 {
@@ -51,21 +53,19 @@
     padding: 20px;
   }
 
-  /* Ajuste para o botão de fechar (X) no modal */
   .close-button {
     font-size: 1.2em;
     top: 5px;
     right: 5px;
   }
 
-  /* Ajustes para os botões de categoria no modal */
   .category-options {
     flex-wrap: wrap;
     gap: 5px;
   }
 
   .category-option {
-    width: 45%; /* Ajusta a largura dos botões para caberem no modal */
+    width: 45%;
     margin: 5px auto;
     font-size: 14px;
     padding: 8px;
@@ -77,6 +77,8 @@
   .game-container {
     max-width: 85%;
     padding: 5px;
+    margin-top: 10px; /* Reduz o espaço acima para igualar com o de baixo */
+    margin-bottom: 10px; /* Igual ao espaço de baixo */
   }
 
   h1 {
@@ -123,21 +125,19 @@
     padding: 15px;
   }
 
-  /* Ajuste para o botão de fechar (X) no modal */
   .close-button {
     font-size: 1em;
     top: 5px;
     right: 5px;
   }
 
-  /* Ajustes para os botões de categoria no modal */
   .category-options {
     flex-wrap: wrap;
     gap: 5px;
   }
 
   .category-option {
-    width: 45%; /* Ajusta a largura dos botões para caberem no modal */
+    width: 45%;
     margin: 5px auto;
     font-size: 12px;
     padding: 6px;
