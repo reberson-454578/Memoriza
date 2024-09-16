@@ -75,7 +75,7 @@
 /* Ajustes para telas muito pequenas (smartphones em modo retrato) */
 @media (max-width: 480px) {
   body {
-    height: 80vh;
+    height: 85vh;
   }
 
   .game-container {
