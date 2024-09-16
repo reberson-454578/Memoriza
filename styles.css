@@ -1,0 +1,395 @@
+/* styles.css */
+
+body {
+  background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+  font-family: "Fredoka One", cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+.game-container {
+  text-align: center;
+  width: 100%;
+  max-width: 450px;
+  padding: 20px;
+  background: linear-gradient(145deg, #ffffff, #e6e6e6);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2),
+    inset 0 0 10px rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(-50px);
+  animation: fadeIn 1.5s ease-out forwards;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #333;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.info-panel {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-size: 1.2em;
+  width: 50%;
+  margin: 0 auto;
+  color: #555;
+  background-color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(4, 90px);
+  grid-gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.card {
+  width: 90px;
+  height: 90px;
+  background: linear-gradient(145deg, #fffae6, #f0f0f0);
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1),
+    inset 0 0 5px rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  perspective: 1000px;
+  transition: transform 0.3s ease, background-color 0.2s ease,
+    box-shadow 0.3s ease;
+  animation: float 1.5s infinite ease-in-out;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2),
+    inset 0 0 8px rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.3s ease-in-out;
+  transform-style: preserve-3d;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+}
+
+.card-front {
+  background-color: #fffae6;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  color: white;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+#restart-button,
+#modal-restart-button,
+#category-button {
+  padding: 12px 24px;
+  font-size: 18px;
+  font-family: "Fredoka One", cursive;
+  background: linear-gradient(145deg, #ff6f61, #e05b52);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease,
+    box-shadow 0.3s ease;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+#restart-button:hover,
+#modal-restart-button:hover,
+#category-button:hover {
+  background: linear-gradient(145deg, #e05b52, #ff6f61);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#restart-button:active,
+#modal-restart-button:active,
+#category-button:active {
+  transform: scale(0.95);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.correct {
+  border: 2px solid #ffffff;
+  animation: glow 1s infinite alternate ease-in-out;
+}
+
+.incorrect {
+  background-color: #ff5252 !important;
+  animation: shake 0.5s ease;
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 10px #8bc34a;
+  }
+  50% {
+    box-shadow: 0 0 20px #8bc34a;
+  }
+  100% {
+    box-shadow: 0 0 10px #8bc34a;
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Modal Styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: scale(0);
+  transition: transform 0.3s ease;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal-content.show {
+  transform: scale(1);
+}
+
+.category-options {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.category-option {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: "Fredoka One", cursive;
+  background: linear-gradient(145deg, #8bc34a, #4caf50);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.category-option:hover {
+  background: linear-gradient(145deg, #4caf50, #8bc34a);
+}
+
+.category-option:active {
+  transform: scale(0.95);
+}
+
+/* Cores de fundo para cada par de frutas */
+.card-back[data-fruit="🍎"] {
+  background-color: #ffcccb;
+} /* Vermelho claro */
+.card-back[data-fruit="🍌"] {
+  background-color: #ffe066;
+} /* Amarelo escuro */
+.card-back[data-fruit="🍒"] {
+  background-color: #f784a6;
+} /* Rosa forte */
+.card-back[data-fruit="🍇"] {
+  background-color: #c79dd7;
+} /* Roxo claro */
+.card-back[data-fruit="🍉"] {
+  background-color: #8fd4c1;
+} /* Verde menta */
+.card-back[data-fruit="🍍"] {
+  background-color: #f6d4a6;
+} /* Bege claro */
+.card-back[data-fruit="🥝"] {
+  background-color: #b5e7a0;
+} /* Verde suave */
+.card-back[data-fruit="🥭"] {
+  background-color: #ffcba4;
+} /* Laranja claro */
+
+/* Cores de fundo para cada par de animais */
+.card-back[data-fruit="🐶"] {
+  background-color: #ff9999;
+} /* Rosa claro */
+.card-back[data-fruit="🐱"] {
+  background-color: #99ccff;
+} /* Azul claro */
+.card-back[data-fruit="🦁"] {
+  background-color: #ffeb99;
+} /* Amarelo suave */
+.card-back[data-fruit="🦊"] {
+  background-color: #ffcc99;
+} /* Pêssego */
+.card-back[data-fruit="🐸"] {
+  background-color: #99ff99;
+} /* Verde claro */
+.card-back[data-fruit="🐧"] {
+  background-color: #c4b7de;
+} /* Lilás */
+.card-back[data-fruit="🐢"] {
+  background-color: #b7e1cd;
+} /* Verde água */
+.card-back[data-fruit="🐘"] {
+  background-color: #b0c4de;
+} /* Azul acinzentado */
+
+/* Cores de fundo para cada par de objetos */
+.card-back[data-fruit="🖥️"] {
+  background-color: #d3d3d3;
+} /* Cinza claro */
+.card-back[data-fruit="📱"] {
+  background-color: #ffccff;
+} /* Rosa bebê */
+.card-back[data-fruit="🖊️"] {
+  background-color: #ccffff;
+} /* Azul bebê */
+.card-back[data-fruit="📷"] {
+  background-color: #ff9999;
+} /* Rosa claro */
+.card-back[data-fruit="🎸"] {
+  background-color: #ffcc66;
+} /* Amarelo suave */
+.card-back[data-fruit="🚗"] {
+  background-color: #ff6666;
+} /* Vermelho médio */
+.card-back[data-fruit="✈️"] {
+  background-color: #66ccff;
+} /* Azul médio */
+.card-back[data-fruit="⏰"] {
+  background-color: #cccccc;
+} /* Cinza suave */
+
+/* Adicionar novas cores para as cartas de Esportes */
+.card-back[data-fruit="🏀"] {
+  background-color: #ffcc00;
+} /* Amarelo */
+.card-back[data-fruit="🎾"] {
+  background-color: #99ff99;
+} /* Verde claro */
+.card-back[data-fruit="🏈"] {
+  background-color: #ff9966;
+} /* Laranja */
+.card-back[data-fruit="⚾"] {
+  background-color: #ffffff;
+} /* Branco */
+.card-back[data-fruit="⚽"] {
+  background-color: #000000;
+} /* Preto */
+.card-back[data-fruit="🥊"] {
+  background-color: #904a50;
+} /* Vermelho */
+.card-back[data-fruit="🏓"] {
+  background-color: #66ccff;
+} /* Azul claro */
+.card-back[data-fruit="🥎"] {
+  background-color: #ffcc99;
+} /* Pêssego */
+
+/* Estilos para o botão de fechar no modal */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.close-button:hover {
+  color: #e05b52;
+}

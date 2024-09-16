@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memoriza!</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="responsividade.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="game-container">
+      <h1>Memoriza!</h1>
+      <div class="info-panel">
+        <span id="moves">Movimentos: 0</span>
+      </div>
+      <div id="game-board" class="game-board"></div>
+      <div class="buttons-container">
+        <button id="restart-button">Reiniciar Jogo</button>
+        <button id="category-button">Escolher Categoria</button>
+      </div>
+    </div>
+
+    <!-- Modal de Vitória -->
+    <div id="victory-modal" class="modal hidden">
+      <div class="modal-content">
+        <h2>Parabéns!</h2>
+        <p>Você venceu o jogo em <span id="final-moves"></span> movimentos!</p>
+        <button id="modal-restart-button">Jogar Novamente</button>
+      </div>
+    </div>
+
+    <!-- Modal de Seleção de Categoria -->
+    <div id="category-modal" class="modal hidden">
+      <div class="modal-content">
+        <button id="close-category-modal" class="close-button">✖</button>
+        <h2>Escolha uma Categoria</h2>
+        <div class="category-options">
+          <button class="category-option" data-category="fruits">Frutas</button>
+          <button class="category-option" data-category="animals">
+            Animais
+          </button>
+          <button class="category-option" data-category="objects">
+            Objetos
+          </button>
+          <button class="category-option" data-category="sports">
+            Esportes
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <audio id="flip-sound" src="flip.mp3"></audio>
+    <audio id="match-sound" src="match.mp3"></audio>
+    <audio id="win-sound" src="win.mp3"></audio>
+    <script src="script.js"></script>
+  </body>
+</html>
