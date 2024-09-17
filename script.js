@@ -5,13 +5,17 @@ const categories = {
   animals: ["🐶", "🐱", "🦁", "🦊", "🐸", "🐧", "🐢", "🐘"],
   objects: ["🖥️", "📱", "🖊️", "📷", "🎸", "🚗", "✈️", "⏰"],
   sports: ["🏀", "🎾", "🏈", "⚾", "⚽", "🥊", "🏓", "🥎"],
-  shapes: ["⬛", "⬜", "🔴", "🔵", "🟢", "🟡", "🟣", "🟠"], // Nova categoria: Formas Geométricas
+  shapes: ["⬛", "⬜", "🔵", "🔴", "🟡", "🟢", "🟣", "🟤"], // Nova categoria adicionada
 };
+
 let currentCategory = "fruits";
 let cards = [...categories[currentCategory], ...categories[currentCategory]];
 let flippedCards = [];
 let matchedCards = 0;
 let moves = 0;
+
+// Inicializa o recorde a partir do armazenamento local, se houver
+let record = localStorage.getItem("memoryGameRecord") || "--";
 
 const flipSound = new Audio("flip.mp3");
 const matchSound = new Audio("match.mp3");
@@ -35,11 +39,11 @@ function createCardElement(value) {
   const card = document.createElement("div");
   card.classList.add("card");
   card.innerHTML = `
-        <div class="card-inner">
-            <div class="card-front"></div>
-            <div class="card-back" data-fruit="${value}">${value}</div>
-        </div>
-    `;
+    <div class="card-inner">
+      <div class="card-front"></div>
+      <div class="card-back" data-fruit="${value}">${value}</div>
+    </div>
+  `;
   card.addEventListener("click", () => handleCardClick(card, value));
   return card;
 }
@@ -79,7 +83,7 @@ function checkForMatch() {
     setTimeout(() => {
       if (matchedCards === cards.length) {
         playSound(winSound);
-        updateRecord(); // Atualiza o recorde se for o caso
+        updateRecord(); // Atualiza o recorde se necessário
         showVictoryModal();
       }
     }, 300);
@@ -104,11 +108,12 @@ function showVictoryModal() {
 }
 
 function updateRecord() {
-  if (record === "--" || moves < record) {
+  // Verifica se o recorde atual é '--' ou se os movimentos atuais são menores que o recorde
+  if (record === "--" || moves < parseInt(record)) {
     record = moves;
     localStorage.setItem("memoryGameRecord", record); // Salva o recorde no armazenamento local
   }
-  document.getElementById("record").textContent = `Recorde: ${record}`;
+  document.getElementById("record").textContent = `Recorde: ${record}`; // Atualiza o texto da label do recorde
 }
 
 function resetGame() {
@@ -148,7 +153,6 @@ function handleCategorySelection(event) {
   }
 }
 
-// Funções de evento para os botões
 document
   .getElementById("restart-button")
   .addEventListener("click", handleRestartClick);
@@ -165,19 +169,13 @@ document.querySelectorAll(".category-option").forEach((button) => {
   button.addEventListener("click", handleCategorySelection);
 });
 
+// Função para fechar o modal de escolha de categoria
 document
   .getElementById("close-category-modal")
   .addEventListener("click", () => {
     document.getElementById("category-modal").classList.add("hidden");
-    document
-      .querySelector("#category-modal .modal-content")
-      .classList.remove("show");
+    document.querySelector(".modal-content").classList.remove("show");
   });
-
-document.getElementById("close-victory-modal").addEventListener("click", () => {
-  document.getElementById("victory-modal").classList.add("hidden");
-  document.querySelector(".modal-content").classList.remove("show");
-});
 
 window.onload = () => {
   initializeGameBoard();

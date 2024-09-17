@@ -377,31 +377,39 @@ h1 {
   background-color: #ffcc99;
 } /* Pêssego */
 
-/* Cores de fundo para cada par de formas geométricas */
+/* Cores de fundo invertidas para cada par de Formas Geométricas */
 .card-back[data-fruit="⬛"] {
-  background-color: #333333;
-} /* Preto */
+  background-color: #ffffff; /* Branco para a forma preta */
+  color: #333333; /* Texto preto */
+}
 .card-back[data-fruit="⬜"] {
-  background-color: #ffffff;
-} /* Branco */
-.card-back[data-fruit="🔴"] {
-  background-color: #ff4444;
-} /* Vermelho */
+  background-color: #333333; /* Preto para a forma branca */
+  color: #ffffff; /* Texto branco */
+}
 .card-back[data-fruit="🔵"] {
-  background-color: #337ab7;
-} /* Azul */
-.card-back[data-fruit="🟢"] {
-  background-color: #4caf50;
-} /* Verde */
+  background-color: #ffcccc; /* Rosa claro para a forma azul */
+  color: #0000ff; /* Texto azul */
+}
+.card-back[data-fruit="🔴"] {
+  background-color: #cceeff; /* Azul claro para a forma vermelha */
+  color: #ff0000; /* Texto vermelho */
+}
 .card-back[data-fruit="🟡"] {
-  background-color: #ffeb3b;
-} /* Amarelo */
+  background-color: #ccffcc; /* Verde claro para a forma amarela */
+  color: #ffff00; /* Texto amarelo */
+}
+.card-back[data-fruit="🟢"] {
+  background-color: #ffffcc; /* Amarelo claro para a forma verde */
+  color: #00ff00; /* Texto verde */
+}
 .card-back[data-fruit="🟣"] {
-  background-color: #9c27b0;
-} /* Roxo */
-.card-back[data-fruit="🟠"] {
-  background-color: #ff9800;
-} /* Laranja */
+  background-color: #ffe6ff; /* Rosa claro para a forma roxa */
+  color: #800080; /* Texto roxo */
+}
+.card-back[data-fruit="🟤"] {
+  background-color: #e0e0e0; /* Cinza claro para a forma marrom */
+  color: #8b4513; /* Texto marrom */
+}
 
 /* Estilos para o botão de fechar no modal */
 .close-button {
