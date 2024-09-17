@@ -5,7 +5,8 @@ const categories = {
   animals: ["🐶", "🐱", "🦁", "🦊", "🐸", "🐧", "🐢", "🐘"],
   objects: ["🖥️", "📱", "🖊️", "📷", "🎸", "🚗", "✈️", "⏰"],
   sports: ["🏀", "🎾", "🏈", "⚾", "⚽", "🥊", "🏓", "🥎"],
-  shapes: ["⬛", "⬜", "🔵", "🔴", "🟡", "🟢", "🟣", "🟤"], // Nova categoria adicionada
+  shapes: ["⬛", "⬜", "🔵", "🔴", "🟡", "🟢", "🟣", "🟤"],
+  foods: ["🍕", "🍔", "🍟", "🍣", "🍰", "🍩", "🍎", "🍉"],
 };
 
 let currentCategory = "fruits";
@@ -153,6 +154,20 @@ function handleCategorySelection(event) {
   }
 }
 
+// Evento para fechar o modal de vitória
+document.getElementById("close-victory-modal").addEventListener("click", () => {
+  document.getElementById("victory-modal").classList.add("hidden");
+  document.querySelector(".modal-content").classList.remove("show");
+});
+
+// Evento para fechar o modal de categorias
+document
+  .getElementById("close-category-modal")
+  .addEventListener("click", () => {
+    document.getElementById("category-modal").classList.add("hidden");
+    document.querySelector(".modal-content").classList.remove("show");
+  });
+
 document
   .getElementById("restart-button")
   .addEventListener("click", handleRestartClick);
@@ -168,14 +183,6 @@ document.getElementById("category-button").addEventListener("click", () => {
 document.querySelectorAll(".category-option").forEach((button) => {
   button.addEventListener("click", handleCategorySelection);
 });
-
-// Função para fechar o modal de escolha de categoria
-document
-  .getElementById("close-category-modal")
-  .addEventListener("click", () => {
-    document.getElementById("category-modal").classList.add("hidden");
-    document.querySelector(".modal-content").classList.remove("show");
-  });
 
 window.onload = () => {
   initializeGameBoard();
