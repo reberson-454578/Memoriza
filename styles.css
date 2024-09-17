@@ -377,7 +377,7 @@ h1 {
   background-color: #ffcc99;
 } /* Pêssego */
 
-/* Cores de fundo invertidas para cada par de Formas Geométricas */
+/* Cores de fundo invertidas para cada par de Plantas */
 .card-back[data-fruit="🌱"] {
   background-color: #ffffff; /* Branco para a forma preta */
   color: #333333; /* Texto preto */
@@ -386,7 +386,7 @@ h1 {
   background-color: #333333; /* Preto para a forma branca */
   color: #ffffff; /* Texto branco */
 }
-.card-back[data-fruit="🪴"] {
+.card-back[data-fruit="🪻"] {
   background-color: #ffcccc; /* Rosa claro para a forma azul */
   color: #0000ff; /* Texto azul */
 }
