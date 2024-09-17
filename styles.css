@@ -246,9 +246,10 @@ h1 {
 }
 
 .category-options {
-  display: flex;
-  justify-content: center;
+  display: grid; /* Mude de flex para grid */
+  grid-template-columns: repeat(4, auto); /* Define 4 colunas automáticas */
   gap: 15px;
+  justify-content: center;
   margin-top: 20px;
 }
 
@@ -447,36 +448,70 @@ h1 {
 
 /* Cores de fundo para cada par de Comidas */
 .card-back[data-fruit="👕"] {
-  background-color: #f0e68c; /* Amarelo claro */
-  color: #d2691e; /* Cor da pizza */
+  background-color: #e6e6fa; /* Amarelo claro */
+  color: #d2691e; /* Cor da camisa */
 }
 .card-back[data-fruit="👖"] {
-  background-color: #e6b8af; /* Rosa claro */
-  color: #8b4513; /* Cor do hambúrguer */
+  background-color: #afeeee; /* Rosa claro */
+  color: #8b4513; /* Cor da calça */
 }
 .card-back[data-fruit="🩳"] {
-  background-color: #add8e6; /* Azul claro */
-  color: #ffcc00; /* Cor das batatas fritas */
+  background-color: #0ca2d4; /* Azul claro */
+  color: #ffcc00; /* Cor do short */
 }
 .card-back[data-fruit="🧦"] {
-  background-color: #ffdead; /* Bege claro */
-  color: #ff4500; /* Cor do sushi */
+  background-color: #ffdab9; /* Bege claro */
+  color: #ff4500; /* Cor das meias */
 }
 .card-back[data-fruit="🩲"] {
-  background-color: #ffe4e1; /* Rosa suave */
-  color: #ff69b4; /* Cor do bolo */
+  background-color: #fffacd; /* Rosa suave */
+  color: #ff69b4; /* Cor da cueca */
 }
 .card-back[data-fruit="👗"] {
-  background-color: #dcdcdc; /* Cinza claro */
-  color: #d2691e; /* Cor do donut */
+  background-color: #b8e6c1; /* Cinza claro */
+  color: #d2691e; /* Cor do vestido */
 }
 .card-back[data-fruit="🧣"] {
-  background-color: #c1ffc1; /* Verde claro */
-  color: #8b0000; /* Cor do ramen */
+  background-color: #fadadd; /* Verde claro */
+  color: #8b0000; /* Cor do cachecol */
 }
 .card-back[data-fruit="🩱"] {
-  background-color: #afeeee; /* Azul pálido */
-  color: #ff6347; /* Cor do camarão */
+  background-color: #add8e6; /* Azul pálido */
+  color: #ff6347; /* Cor do maiô */
+}
+
+/* Cores de fundo para cada par de Banheiro */
+.card-back[data-fruit="🚽"] {
+  background-color: #a9dfbf;
+  color: #d2691e;
+}
+.card-back[data-fruit="🪥"] {
+  background-color: #c3b1e1;
+  color: #8b4513;
+}
+.card-back[data-fruit="🚿"] {
+  background-color: #f7e7a9;
+  color: #ffcc00;
+}
+.card-back[data-fruit="🧼"] {
+  background-color: #f4a7b9;
+  color: #ff4500;
+}
+.card-back[data-fruit="🪠"] {
+  background-color: #a7c7e7;
+  color: #ff69b4;
+}
+.card-back[data-fruit="🪞"] {
+  background-color: #f8bbd0;
+  color: #d2691e;
+}
+.card-back[data-fruit="🧻"] {
+  background-color: #fadadd;
+  color: #8b0000;
+}
+.card-back[data-fruit="🛁"] {
+  background-color: #fad9c3;
+  color: #ff6347;
 }
 
 /* Estilos para o botão de fechar no modal */

@@ -16,7 +16,7 @@
   .info-panel {
     font-size: 1em;
     padding: 6px 12px;
-    gap: 10px; /* Ajuste do espaço entre as labels */
+    gap: 10px;
     width: 70%;
   }
 
@@ -62,13 +62,15 @@
   }
 
   .category-options {
-    flex-wrap: wrap;
+    display: grid; /* Mudar para grid */
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* 2 categorias por linha para telas menores */
     gap: 5px;
   }
 
   .category-option {
-    width: 45%;
-    margin: 5px auto;
     font-size: 14px;
     padding: 8px;
   }
@@ -99,7 +101,7 @@
     font-size: 0.9em;
     padding: 4px 8px;
     width: 90%;
-    gap: 8px; /* Ajuste do espaço entre as labels */
+    gap: 8px;
     margin: 0 auto;
   }
 
@@ -115,11 +117,11 @@
   }
 
   .card-inner {
-    transition: transform 0.2s ease-in-out; /* Reduzindo a duração da transição */
+    transition: transform 0.2s ease-in-out;
   }
 
   .card {
-    will-change: transform; /* Otimiza a rotação da carta */
+    will-change: transform;
   }
 
   .card-front,
@@ -151,13 +153,15 @@
   }
 
   .category-options {
-    flex-wrap: wrap;
+    display: grid; /* Mudar para grid */
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* 2 categorias por linha para telas muito pequenas */
     gap: 5px;
   }
 
   .category-option {
-    width: 45%;
-    margin: 5px auto;
     font-size: 12px;
     padding: 6px;
   }
