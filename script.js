@@ -5,8 +5,8 @@ const categories = {
   animals: ["🐶", "🐱", "🦁", "🦊", "🐸", "🐧", "🐢", "🐘"],
   objects: ["🖥️", "📱", "🖊️", "📷", "🎸", "🚗", "✈️", "⏰"],
   sports: ["🏀", "🎾", "🏈", "⚾", "⚽", "🥊", "🏓", "🥎"],
-  shapes: ["⬛", "⬜", "🔵", "🔴", "🟡", "🟢", "🟣", "🟤"], // Formas Geométricas
-  foods: ["🍕", "🍔", "🍟", "🍣", "🍰", "🍩", "🍜", "🍤"], // Atualizada a categoria Comidas
+  shapes: ["⬛", "⬜", "🔵", "🔴", "🟡", "🟢", "🟣", "🟤"],
+  foods: ["🍕", "🍔", "🍟", "🍣", "🍰", "🍩", "🍜", "🍤"],
 };
 
 let currentCategory = "fruits";
@@ -15,9 +15,39 @@ let flippedCards = [];
 let matchedCards = 0;
 let moves = 0;
 
-// Inicializa o recorde a partir do armazenamento local, se houver
-let record = localStorage.getItem("memoryGameRecord") || "--";
+// Inicializa o objeto de recordes para armazenar recordes por categoria
+let records = JSON.parse(localStorage.getItem("memoryGameRecords")) || {};
 
+// Verifica se existe um recorde para a categoria atual; caso contrário, define como null
+function initializeRecordForCategory(category) {
+  if (!records[category]) {
+    records[category] = null; // Inicia o recorde como null se não houver um para esta categoria
+  }
+}
+
+// Atualiza o recorde para a categoria atual quando o jogador vence
+function updateRecord(moves, category) {
+  initializeRecordForCategory(category);
+
+  // Verifica se o recorde deve ser atualizado
+  if (records[category] === null || moves < records[category]) {
+    records[category] = moves;
+    localStorage.setItem("memoryGameRecords", JSON.stringify(records)); // Salva o novo recorde no armazenamento local
+  }
+  displayRecord(category); // Atualiza a exibição do recorde na tela
+}
+
+// Exibe o recorde para a categoria atual na interface do usuário
+function displayRecord(category) {
+  initializeRecordForCategory(category);
+
+  const record = records[category];
+  document.getElementById("record").textContent = `Recorde: ${
+    record !== null ? record : "--"
+  }`;
+}
+
+// Funções de áudio
 const flipSound = new Audio("flip.mp3");
 const matchSound = new Audio("match.mp3");
 const winSound = new Audio("win.mp3");
@@ -28,6 +58,7 @@ function playSound(sound) {
   sound.play();
 }
 
+// Função para embaralhar as cartas
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -36,6 +67,7 @@ function shuffle(array) {
   return array;
 }
 
+// Função para criar elementos de carta
 function createCardElement(value) {
   const card = document.createElement("div");
   card.classList.add("card");
@@ -49,6 +81,7 @@ function createCardElement(value) {
   return card;
 }
 
+// Inicializa o tabuleiro do jogo
 function initializeGameBoard() {
   const gameBoard = document.getElementById("game-board");
   gameBoard.innerHTML = "";
@@ -57,9 +90,10 @@ function initializeGameBoard() {
     gameBoard.appendChild(cardElement);
   });
   resetGame();
-  updateRecord(); // Atualiza a exibição do recorde
+  displayRecord(currentCategory); // Exibe o recorde da categoria atual
 }
 
+// Lida com o clique em uma carta
 function handleCardClick(card, value) {
   if (card.classList.contains("flipped") || flippedCards.length === 2) return;
   card.classList.add("flipped");
@@ -73,6 +107,7 @@ function handleCardClick(card, value) {
   }
 }
 
+// Verifica se há uma correspondência entre duas cartas viradas
 function checkForMatch() {
   const [firstCard, secondCard] = flippedCards;
   if (firstCard.value === secondCard.value) {
@@ -84,7 +119,7 @@ function checkForMatch() {
     setTimeout(() => {
       if (matchedCards === cards.length) {
         playSound(winSound);
-        updateRecord(); // Atualiza o recorde se necessário
+        updateRecord(moves, currentCategory); // Atualiza o recorde para a categoria atual
         showVictoryModal();
       }
     }, 300);
@@ -99,6 +134,7 @@ function checkForMatch() {
   }
 }
 
+// Mostra o modal de vitória
 function showVictoryModal() {
   const modal = document.getElementById("victory-modal");
   const finalMoves = document.getElementById("final-moves");
@@ -108,15 +144,7 @@ function showVictoryModal() {
   setTimeout(() => modalContent.classList.add("show"), 100);
 }
 
-function updateRecord() {
-  // Verifica se o recorde atual é '--' ou se os movimentos atuais são menores que o recorde
-  if (record === "--" || moves < parseInt(record)) {
-    record = moves;
-    localStorage.setItem("memoryGameRecord", record); // Salva o recorde no armazenamento local
-  }
-  document.getElementById("record").textContent = `Recorde: ${record}`; // Atualiza o texto da label do recorde
-}
-
+// Reseta o jogo
 function resetGame() {
   matchedCards = 0;
   moves = 0;
@@ -127,6 +155,7 @@ function resetGame() {
   animateEntry();
 }
 
+// Anima a entrada do jogo
 function animateEntry() {
   const gameContainer = document.querySelector(".game-container");
   gameContainer.style.opacity = "0";
@@ -138,12 +167,14 @@ function animateEntry() {
   }, 100);
 }
 
+// Lida com o clique para reiniciar o jogo
 function handleRestartClick() {
   const gameContainer = document.querySelector(".game-container");
   gameContainer.style.opacity = "0";
   setTimeout(initializeGameBoard, 500);
 }
 
+// Lida com a seleção de categoria
 function handleCategorySelection(event) {
   const category = event.target.getAttribute("data-category");
   if (category) {
@@ -154,13 +185,12 @@ function handleCategorySelection(event) {
   }
 }
 
-// Evento para fechar o modal de vitória
+// Eventos de clique para fechar modais
 document.getElementById("close-victory-modal").addEventListener("click", () => {
   document.getElementById("victory-modal").classList.add("hidden");
   document.querySelector(".modal-content").classList.remove("show");
 });
 
-// Evento para fechar o modal de categorias
 document
   .getElementById("close-category-modal")
   .addEventListener("click", () => {
@@ -168,6 +198,7 @@ document
     document.querySelector(".modal-content").classList.remove("show");
   });
 
+// Eventos de clique para os botões
 document
   .getElementById("restart-button")
   .addEventListener("click", handleRestartClick);
@@ -184,6 +215,7 @@ document.querySelectorAll(".category-option").forEach((button) => {
   button.addEventListener("click", handleCategorySelection);
 });
 
+// Inicializa o jogo ao carregar a página
 window.onload = () => {
   initializeGameBoard();
   animateEntry();

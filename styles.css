@@ -413,36 +413,36 @@ h1 {
 
 /* Cores de fundo para cada par de Comidas */
 .card-back[data-fruit="🍕"] {
-  background-color: #ffcc99; /* Laranja claro */
+  background-color: #f0e68c; /* Amarelo claro */
   color: #d2691e; /* Cor da pizza */
 }
 .card-back[data-fruit="🍔"] {
-  background-color: #fff8dc; /* Bege */
+  background-color: #e6b8af; /* Rosa claro */
   color: #8b4513; /* Cor do hambúrguer */
 }
 .card-back[data-fruit="🍟"] {
-  background-color: #ffeb99; /* Amarelo suave */
+  background-color: #add8e6; /* Azul claro */
   color: #ffcc00; /* Cor das batatas fritas */
 }
 .card-back[data-fruit="🍣"] {
-  background-color: #ffc0cb; /* Rosa claro */
+  background-color: #ffdead; /* Bege claro */
   color: #ff4500; /* Cor do sushi */
 }
 .card-back[data-fruit="🍰"] {
-  background-color: #e6e6fa; /* Lavanda */
+  background-color: #ffe4e1; /* Rosa suave */
   color: #ff69b4; /* Cor do bolo */
 }
 .card-back[data-fruit="🍩"] {
-  background-color: #f5deb3; /* Trigo */
+  background-color: #dcdcdc; /* Cinza claro */
   color: #d2691e; /* Cor do donut */
 }
-.card-back[data-fruit="🍎"] {
-  background-color: #ffb6c1; /* Rosa claro */
-  color: #ff0000; /* Cor da maçã */
+.card-back[data-fruit="🍜"] {
+  background-color: #c1ffc1; /* Verde claro */
+  color: #8b0000; /* Cor do ramen */
 }
-.card-back[data-fruit="🍉"] {
-  background-color: #98fb98; /* Verde claro */
-  color: #ff4500; /* Cor da melancia */
+.card-back[data-fruit="🍤"] {
+  background-color: #afeeee; /* Azul pálido */
+  color: #ff6347; /* Cor do camarão */
 }
 
 /* Estilos para o botão de fechar no modal */
