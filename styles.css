@@ -445,6 +445,40 @@ h1 {
   color: #ff6347; /* Cor do camarão */
 }
 
+/* Cores de fundo para cada par de Comidas */
+.card-back[data-fruit="👕"] {
+  background-color: #f0e68c; /* Amarelo claro */
+  color: #d2691e; /* Cor da pizza */
+}
+.card-back[data-fruit="👖"] {
+  background-color: #e6b8af; /* Rosa claro */
+  color: #8b4513; /* Cor do hambúrguer */
+}
+.card-back[data-fruit="🩳"] {
+  background-color: #add8e6; /* Azul claro */
+  color: #ffcc00; /* Cor das batatas fritas */
+}
+.card-back[data-fruit="🧦"] {
+  background-color: #ffdead; /* Bege claro */
+  color: #ff4500; /* Cor do sushi */
+}
+.card-back[data-fruit="🩲"] {
+  background-color: #ffe4e1; /* Rosa suave */
+  color: #ff69b4; /* Cor do bolo */
+}
+.card-back[data-fruit="👗"] {
+  background-color: #dcdcdc; /* Cinza claro */
+  color: #d2691e; /* Cor do donut */
+}
+.card-back[data-fruit="🧣"] {
+  background-color: #c1ffc1; /* Verde claro */
+  color: #8b0000; /* Cor do ramen */
+}
+.card-back[data-fruit="🩱"] {
+  background-color: #afeeee; /* Azul pálido */
+  color: #ff6347; /* Cor do camarão */
+}
+
 /* Estilos para o botão de fechar no modal */
 .close-button {
   position: absolute;
