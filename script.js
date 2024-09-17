@@ -5,20 +5,13 @@ const categories = {
   animals: ["🐶", "🐱", "🦁", "🦊", "🐸", "🐧", "🐢", "🐘"],
   objects: ["🖥️", "📱", "🖊️", "📷", "🎸", "🚗", "✈️", "⏰"],
   sports: ["🏀", "🎾", "🏈", "⚾", "⚽", "🥊", "🏓", "🥎"],
+  shapes: ["⬛", "⬜", "🔴", "🔵", "🟢", "🟡", "🟣", "🟠"], // Nova categoria: Formas Geométricas
 };
 let currentCategory = "fruits";
 let cards = [...categories[currentCategory], ...categories[currentCategory]];
 let flippedCards = [];
 let matchedCards = 0;
 let moves = 0;
-
-// Recupera o recorde do localStorage ou define como infinito se não houver
-let record = localStorage.getItem("record")
-  ? parseInt(localStorage.getItem("record"))
-  : Infinity;
-document.getElementById("record").textContent = `Recorde: ${
-  record === Infinity ? "--" : record
-}`;
 
 const flipSound = new Audio("flip.mp3");
 const matchSound = new Audio("match.mp3");
@@ -59,6 +52,7 @@ function initializeGameBoard() {
     gameBoard.appendChild(cardElement);
   });
   resetGame();
+  updateRecord(); // Atualiza a exibição do recorde
 }
 
 function handleCardClick(card, value) {
@@ -85,7 +79,7 @@ function checkForMatch() {
     setTimeout(() => {
       if (matchedCards === cards.length) {
         playSound(winSound);
-        checkForRecord();
+        updateRecord(); // Atualiza o recorde se for o caso
         showVictoryModal();
       }
     }, 300);
@@ -100,14 +94,6 @@ function checkForMatch() {
   }
 }
 
-function checkForRecord() {
-  if (moves < record) {
-    record = moves;
-    localStorage.setItem("record", record); // Salva o recorde no localStorage
-    document.getElementById("record").textContent = `Recorde: ${record}`;
-  }
-}
-
 function showVictoryModal() {
   const modal = document.getElementById("victory-modal");
   const finalMoves = document.getElementById("final-moves");
@@ -115,6 +101,14 @@ function showVictoryModal() {
   modal.classList.remove("hidden");
   const modalContent = document.querySelector(".modal-content");
   setTimeout(() => modalContent.classList.add("show"), 100);
+}
+
+function updateRecord() {
+  if (record === "--" || moves < record) {
+    record = moves;
+    localStorage.setItem("memoryGameRecord", record); // Salva o recorde no armazenamento local
+  }
+  document.getElementById("record").textContent = `Recorde: ${record}`;
 }
 
 function resetGame() {
@@ -154,6 +148,7 @@ function handleCategorySelection(event) {
   }
 }
 
+// Funções de evento para os botões
 document
   .getElementById("restart-button")
   .addEventListener("click", handleRestartClick);
@@ -179,24 +174,10 @@ document
       .classList.remove("show");
   });
 
-// Função para fechar o modal de vitória
 document.getElementById("close-victory-modal").addEventListener("click", () => {
   document.getElementById("victory-modal").classList.add("hidden");
   document.querySelector(".modal-content").classList.remove("show");
 });
-
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker
-      .register("/service-worker.js")
-      .then((registration) => {
-        console.log("Service Worker registrado com sucesso:", registration);
-      })
-      .catch((error) => {
-        console.log("Falha ao registrar o Service Worker:", error);
-      });
-  });
-}
 
 window.onload = () => {
   initializeGameBoard();

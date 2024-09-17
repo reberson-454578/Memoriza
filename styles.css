@@ -377,6 +377,32 @@ h1 {
   background-color: #ffcc99;
 } /* Pêssego */
 
+/* Cores de fundo para cada par de formas geométricas */
+.card-back[data-fruit="⬛"] {
+  background-color: #333333;
+} /* Preto */
+.card-back[data-fruit="⬜"] {
+  background-color: #ffffff;
+} /* Branco */
+.card-back[data-fruit="🔴"] {
+  background-color: #ff4444;
+} /* Vermelho */
+.card-back[data-fruit="🔵"] {
+  background-color: #337ab7;
+} /* Azul */
+.card-back[data-fruit="🟢"] {
+  background-color: #4caf50;
+} /* Verde */
+.card-back[data-fruit="🟡"] {
+  background-color: #ffeb3b;
+} /* Amarelo */
+.card-back[data-fruit="🟣"] {
+  background-color: #9c27b0;
+} /* Roxo */
+.card-back[data-fruit="🟠"] {
+  background-color: #ff9800;
+} /* Laranja */
+
 /* Estilos para o botão de fechar no modal */
 .close-button {
   position: absolute;
