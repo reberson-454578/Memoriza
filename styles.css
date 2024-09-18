@@ -446,38 +446,38 @@ h1 {
   color: #ff6347; /* Cor do camarão */
 }
 
-/* Cores de fundo para cada par de Comidas */
-.card-back[data-fruit="👕"] {
-  background-color: #e6e6fa; /* Amarelo claro */
-  color: #d2691e; /* Cor da camisa */
+/* Cores de fundo para cada par de Emoji */
+.card-back[data-fruit="😀"] {
+  background-color: #e6e6fa;
+  color: #d2691e;
 }
-.card-back[data-fruit="👖"] {
-  background-color: #afeeee; /* Rosa claro */
-  color: #8b4513; /* Cor da calça */
+.card-back[data-fruit="😔"] {
+  background-color: #afeeee;
+  color: #8b4513;
 }
-.card-back[data-fruit="🩳"] {
-  background-color: #0ca2d4; /* Azul claro */
-  color: #ffcc00; /* Cor do short */
+.card-back[data-fruit="😍"] {
+  background-color: #0ca2d4;
+  color: #ffcc00;
 }
-.card-back[data-fruit="🧦"] {
-  background-color: #ffdab9; /* Bege claro */
-  color: #ff4500; /* Cor das meias */
+.card-back[data-fruit="😢"] {
+  background-color: #ffdab9;
+  color: #ff4500;
 }
-.card-back[data-fruit="🩲"] {
-  background-color: #fffacd; /* Rosa suave */
-  color: #ff69b4; /* Cor da cueca */
+.card-back[data-fruit="🤗"] {
+  background-color: #fffacd;
+  color: #ff69b4;
 }
-.card-back[data-fruit="👗"] {
-  background-color: #b8e6c1; /* Cinza claro */
-  color: #d2691e; /* Cor do vestido */
+.card-back[data-fruit="🤔"] {
+  background-color: #b8e6c1;
+  color: #d2691e;
 }
-.card-back[data-fruit="🧣"] {
-  background-color: #fadadd; /* Verde claro */
-  color: #8b0000; /* Cor do cachecol */
+.card-back[data-fruit="🙃"] {
+  background-color: #fadadd;
+  color: #8b0000;
 }
-.card-back[data-fruit="🩱"] {
-  background-color: #add8e6; /* Azul pálido */
-  color: #ff6347; /* Cor do maiô */
+.card-back[data-fruit="🤮"] {
+  background-color: #add8e6;
+  color: #ff6347;
 }
 
 /* Cores de fundo para cada par de Química */
