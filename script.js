@@ -217,6 +217,17 @@ document.querySelectorAll(".category-option").forEach((button) => {
   button.addEventListener("click", handleCategorySelection);
 });
 
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker
+    .register("/service-worker.js")
+    .then((registration) => {
+      console.log("Service Worker registrado com sucesso:", registration);
+    })
+    .catch((error) => {
+      console.log("Falha ao registrar o Service Worker:", error);
+    });
+}
+
 // Inicializa o jogo ao carregar a página
 window.onload = () => {
   initializeGameBoard();

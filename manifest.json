@@ -1,0 +1,21 @@
+{
+  "name": "Memoriza!",
+  "short_name": "Memoriza",
+  "description": "Um divertido jogo de memória com emojis!",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#f6d365",
+  "theme_color": "#fda085",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
