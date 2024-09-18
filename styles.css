@@ -480,36 +480,36 @@ h1 {
   color: #ff6347; /* Cor do maiô */
 }
 
-/* Cores de fundo para cada par de Banheiro */
-.card-back[data-fruit="🚽"] {
+/* Cores de fundo para cada par de Química */
+.card-back[data-fruit="🧪"] {
   background-color: #a9dfbf;
   color: #d2691e;
 }
-.card-back[data-fruit="🪥"] {
+.card-back[data-fruit="⚗️"] {
   background-color: #c3b1e1;
   color: #8b4513;
 }
-.card-back[data-fruit="🚿"] {
+.card-back[data-fruit="🧫"] {
   background-color: #f7e7a9;
   color: #ffcc00;
 }
-.card-back[data-fruit="🧼"] {
+.card-back[data-fruit="💉"] {
   background-color: #f4a7b9;
   color: #ff4500;
 }
-.card-back[data-fruit="🪠"] {
+.card-back[data-fruit="💊"] {
   background-color: #a7c7e7;
   color: #ff69b4;
 }
-.card-back[data-fruit="🪞"] {
+.card-back[data-fruit="🔬"] {
   background-color: #f8bbd0;
   color: #d2691e;
 }
-.card-back[data-fruit="🧻"] {
+.card-back[data-fruit="🧬"] {
   background-color: #fadadd;
   color: #8b0000;
 }
-.card-back[data-fruit="🛁"] {
+.card-back[data-fruit="🛢️"] {
   background-color: #fad9c3;
   color: #ff6347;
 }
