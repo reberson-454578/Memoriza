@@ -24,16 +24,22 @@ body {
 .emoji {
   position: absolute;
   font-size: 2em;
-  opacity: 0.8;
+  opacity: 0; /* Inicia invisível */
+  top: -10%; /* Iniciar um pouco acima da tela */
   animation: fall linear infinite;
 }
 
 @keyframes fall {
   0% {
     transform: translateY(-100px) rotate(0deg);
+    opacity: 0; /* Inicia invisível */
+  }
+  10% {
+    opacity: 1; /* Gradualmente aparece */
   }
   100% {
-    transform: translateY(100vh) rotate(360deg);
+    transform: translateY(110vh) rotate(360deg); /* Sai um pouco abaixo da tela */
+    opacity: 1; /* Desaparece ao sair da tela */
   }
 }
 

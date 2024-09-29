@@ -266,7 +266,6 @@ function createFallingEmojis() {
     // Define um tamanho e uma velocidade de queda aleatória
     emojiElement.style.fontSize = `${Math.random() * 2 + 1.5}em`;
     emojiElement.style.animationDuration = `${Math.random() * 5 + 10}s`; // Queda lenta
-    emojiElement.style.animationDelay = `${Math.random() * 5}s`; // Diferentes delays para começar
 
     // Adiciona o emoji ao container
     emojiContainer.appendChild(emojiElement);
