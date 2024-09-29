@@ -1,7 +1,7 @@
 /* styles.css */
 
 body {
-  background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
   font-family: "Fredoka One", cursive;
   display: flex;
   justify-content: center;
@@ -9,6 +9,32 @@ body {
   height: 100vh;
   margin: 0;
   overflow: hidden;
+}
+
+#emoji-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Não interferir na interação com o jogo */
+  z-index: -1; /* Colocar atrás de todo o conteúdo */
+}
+
+.emoji {
+  position: absolute;
+  font-size: 2em;
+  opacity: 0.8;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+  }
 }
 
 .game-container {

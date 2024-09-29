@@ -233,3 +233,48 @@ window.onload = () => {
   initializeGameBoard();
   animateEntry();
 };
+
+// Emojis do jogo
+const emojiArray = [
+  ...categories.fruits,
+  ...categories.animals,
+  ...categories.objects,
+  ...categories.sports,
+  ...categories.plants,
+  ...categories.foods,
+  ...categories.feelings,
+  ...categories.chemistry,
+];
+
+// Função para gerar emojis aleatórios caindo
+function createFallingEmojis() {
+  const emojiContainer = document.getElementById("emoji-container");
+
+  // Gera uma quantidade de emojis
+  for (let i = 0; i < 20; i++) {
+    const emojiElement = document.createElement("div");
+    emojiElement.classList.add("emoji");
+
+    // Escolhe um emoji aleatório do array de emojis
+    const randomEmoji =
+      emojiArray[Math.floor(Math.random() * emojiArray.length)];
+    emojiElement.textContent = randomEmoji;
+
+    // Posiciona aleatoriamente na horizontal
+    emojiElement.style.left = `${Math.random() * 100}vw`;
+
+    // Define um tamanho e uma velocidade de queda aleatória
+    emojiElement.style.fontSize = `${Math.random() * 2 + 1.5}em`;
+    emojiElement.style.animationDuration = `${Math.random() * 5 + 10}s`; // Queda lenta
+    emojiElement.style.animationDelay = `${Math.random() * 5}s`; // Diferentes delays para começar
+
+    // Adiciona o emoji ao container
+    emojiContainer.appendChild(emojiElement);
+  }
+}
+
+// Chama a função para criar os emojis ao carregar a página
+window.onload = () => {
+  initializeGameBoard();
+  createFallingEmojis(); // Adiciona os emojis caindo
+};
