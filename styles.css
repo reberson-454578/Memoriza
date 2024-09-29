@@ -306,7 +306,7 @@ h1 {
   transform: scale(0.95);
 }
 
-/* Cores de fundo para cada par de frutas */
+/* Cores de fundo para cada par de frutas (mantidas intactas) */
 .card-back[data-fruit="🍎"] {
   background-color: #ffcccb;
 } /* Vermelho claro */
@@ -332,219 +332,222 @@ h1 {
   background-color: #ffcba4;
 } /* Laranja claro */
 
-/* Cores de fundo para cada par de animais */
+/* Cores de fundo para animais */
 .card-back[data-fruit="🐶"] {
-  background-color: #ff9999;
+  background-color: #ffe6e6;
 } /* Rosa claro */
 .card-back[data-fruit="🐱"] {
-  background-color: #99ccff;
+  background-color: #b3e5fc;
 } /* Azul claro */
 .card-back[data-fruit="🦁"] {
-  background-color: #ffeb99;
-} /* Amarelo suave */
+  background-color: #fff59d;
+} /* Amarelo claro */
 .card-back[data-fruit="🦊"] {
-  background-color: #ffcc99;
-} /* Pêssego */
+  background-color: #ffcc80;
+} /* Laranja suave */
 .card-back[data-fruit="🐸"] {
-  background-color: #99ff99;
-} /* Verde claro */
+  background-color: #aed581;
+} /* Verde suave */
 .card-back[data-fruit="🐧"] {
-  background-color: #c4b7de;
-} /* Lilás */
+  background-color: #e1bee7;
+} /* Roxo suave */
 .card-back[data-fruit="🐢"] {
-  background-color: #b7e1cd;
+  background-color: #a5d6a7;
 } /* Verde água */
 .card-back[data-fruit="🐘"] {
-  background-color: #b0c4de;
-} /* Azul acinzentado */
+  background-color: #cfd8dc;
+} /* Cinza claro */
 
-/* Cores de fundo para cada par de objetos */
+/* Cores de fundo para objetos */
 .card-back[data-fruit="🖥️"] {
-  background-color: #d3d3d3;
+  background-color: #e0e0e0;
 } /* Cinza claro */
 .card-back[data-fruit="📱"] {
-  background-color: #ffccff;
+  background-color: #f8bbd0;
 } /* Rosa bebê */
 .card-back[data-fruit="🖊️"] {
-  background-color: #ccffff;
+  background-color: #b3e5fc;
 } /* Azul bebê */
 .card-back[data-fruit="📷"] {
-  background-color: #ff9999;
+  background-color: #ffcdd2;
 } /* Rosa claro */
 .card-back[data-fruit="🎸"] {
-  background-color: #ffcc66;
+  background-color: #ffe082;
 } /* Amarelo suave */
 .card-back[data-fruit="🚗"] {
-  background-color: #ff6666;
+  background-color: #ff8a80;
 } /* Vermelho médio */
 .card-back[data-fruit="✈️"] {
-  background-color: #66ccff;
-} /* Azul médio */
+  background-color: #81d4fa;
+} /* Azul claro */
 .card-back[data-fruit="⏰"] {
-  background-color: #837474;
+  background-color: #b0bec5;
 } /* Cinza suave */
 
-/* Adicionar novas cores para as cartas de Esportes */
+/* Cores de fundo para esportes */
 .card-back[data-fruit="🏀"] {
-  background-color: #ffcc00;
-} /* Amarelo */
+  background-color: #f57c00;
+} /* Laranja forte (cor da bola de basquete) */
 .card-back[data-fruit="🎾"] {
-  background-color: #99ff99;
-} /* Verde claro */
+  background-color: #cddc39;
+} /* Verde limão (cor da bola de tênis) */
 .card-back[data-fruit="🏈"] {
-  background-color: #ff9966;
-} /* Laranja */
+  background-color: #8d6e63;
+} /* Marrom (cor da bola de futebol americano) */
 .card-back[data-fruit="⚾"] {
-  background-color: #ffffff;
-} /* Branco */
+  background-color: #f5f5f5;
+  color: #d32f2f;
+} /* Branco com detalhes em vermelho (cor da bola de beisebol) */
 .card-back[data-fruit="⚽"] {
-  background-color: #000000;
-} /* Preto */
+  background-color: #e0e0e0;
+  color: #424242;
+} /* Cinza claro (para a bola de futebol) */
 .card-back[data-fruit="🥊"] {
-  background-color: #904a50;
-} /* Vermelho */
+  background-color: #8b3a3a;
+  color: #ffffff;
+} /* Vermelho intenso (para as luvas de boxe) */
 .card-back[data-fruit="🏓"] {
-  background-color: #66ccff;
-} /* Azul claro */
+  background-color: #29b6f6;
+} /* Azul vibrante (para as raquetes de ping-pong) */
 .card-back[data-fruit="🥎"] {
-  background-color: #ffcc99;
-} /* Pêssego */
+  background-color: #ffeb3b;
+  color: #f57f17;
+} /* Amarelo vibrante (para a bola de softbol) */
 
-/* Cores de fundo invertidas para cada par de Plantas */
+/* Cores de fundo para plantas */
 .card-back[data-fruit="🌱"] {
-  background-color: #ffffff; /* Branco para a forma preta */
-  color: #333333; /* Texto preto */
-}
+  background-color: #a7ffeb;
+} /* Verde menta */
 .card-back[data-fruit="🌵"] {
-  background-color: #333333; /* Preto para a forma branca */
-  color: #ffffff; /* Texto branco */
-}
+  background-color: #388e3c;
+  color: #ffffff;
+} /* Verde escuro */
 .card-back[data-fruit="🍀"] {
-  background-color: #ffcccc; /* Rosa claro para a forma azul */
-  color: #0000ff; /* Texto azul */
-}
+  background-color: #c8e6c9;
+  color: #000000;
+} /* Verde claro */
 .card-back[data-fruit="🍄"] {
-  background-color: #cceeff; /* Azul claro para a forma vermelha */
-  color: #ff0000; /* Texto vermelho */
-}
+  background-color: #ffccbc;
+  color: #d32f2f;
+} /* Vermelho claro */
 .card-back[data-fruit="🌾"] {
-  background-color: #ccffcc; /* Verde claro para a forma amarela */
-  color: #ffff00; /* Texto amarelo */
-}
+  background-color: #fff9c4;
+  color: #fbc02d;
+} /* Amarelo */
 .card-back[data-fruit="🌲"] {
-  background-color: #ffffcc; /* Amarelo claro para a forma verde */
-  color: #00ff00; /* Texto verde */
-}
+  background-color: #c8e6c9;
+  color: #388e3c;
+} /* Verde suave */
 .card-back[data-fruit="🌻"] {
-  background-color: #ffe6ff; /* Rosa claro para a forma roxa */
-  color: #800080; /* Texto roxo */
-}
+  background-color: #fff59d;
+  color: #f57f17;
+} /* Amarelo claro */
 .card-back[data-fruit="🌹"] {
-  background-color: #e0e0e0; /* Cinza claro para a forma marrom */
-  color: #8b4513; /* Texto marrom */
-}
-
-/* Cores de fundo para cada par de Comidas */
-.card-back[data-fruit="🍕"] {
-  background-color: #f0e68c; /* Amarelo claro */
-  color: #d2691e; /* Cor da pizza */
-}
-.card-back[data-fruit="🍔"] {
-  background-color: #e6b8af; /* Rosa claro */
-  color: #8b4513; /* Cor do hambúrguer */
-}
-.card-back[data-fruit="🍟"] {
-  background-color: #add8e6; /* Azul claro */
-  color: #ffcc00; /* Cor das batatas fritas */
-}
-.card-back[data-fruit="🍣"] {
-  background-color: #ffdead; /* Bege claro */
-  color: #ff4500; /* Cor do sushi */
-}
-.card-back[data-fruit="🍰"] {
-  background-color: #ffe4e1; /* Rosa suave */
-  color: #ff69b4; /* Cor do bolo */
-}
-.card-back[data-fruit="🍩"] {
-  background-color: #dcdcdc; /* Cinza claro */
-  color: #d2691e; /* Cor do donut */
-}
-.card-back[data-fruit="🍜"] {
-  background-color: #c1ffc1; /* Verde claro */
-  color: #8b0000; /* Cor do ramen */
-}
-.card-back[data-fruit="🍤"] {
-  background-color: #afeeee; /* Azul pálido */
-  color: #ff6347; /* Cor do camarão */
-}
-
-/* Cores de fundo para cada par de Emoji */
-.card-back[data-fruit="😀"] {
-  background-color: #e6e6fa;
-  color: #d2691e;
-}
-.card-back[data-fruit="😔"] {
-  background-color: #afeeee;
-  color: #8b4513;
-}
-.card-back[data-fruit="😍"] {
-  background-color: #0ca2d4;
-  color: #ffcc00;
-}
-.card-back[data-fruit="😢"] {
-  background-color: #ffdab9;
-  color: #ff4500;
-}
-.card-back[data-fruit="🤗"] {
-  background-color: #fffacd;
-  color: #ff69b4;
-}
-.card-back[data-fruit="🤔"] {
-  background-color: #b8e6c1;
-  color: #d2691e;
-}
-.card-back[data-fruit="🙃"] {
-  background-color: #fadadd;
-  color: #8b0000;
-}
-.card-back[data-fruit="🤮"] {
-  background-color: #add8e6;
-  color: #ff6347;
-}
-
-/* Cores de fundo para cada par de Química */
-.card-back[data-fruit="🧪"] {
-  background-color: #a9dfbf;
-  color: #d2691e;
-}
-.card-back[data-fruit="⚗️"] {
-  background-color: #c3b1e1;
-  color: #8b4513;
-}
-.card-back[data-fruit="🧫"] {
-  background-color: #f7e7a9;
-  color: #ffcc00;
-}
-.card-back[data-fruit="💉"] {
-  background-color: #f4a7b9;
-  color: #ff4500;
-}
-.card-back[data-fruit="💊"] {
-  background-color: #a7c7e7;
-  color: #ff69b4;
-}
-.card-back[data-fruit="🔬"] {
   background-color: #f8bbd0;
+  color: #c2185b;
+} /* Rosa suave */
+
+/* Cores de fundo para alimentos */
+.card-back[data-fruit="🍕"] {
+  background-color: #ffeb99;
   color: #d2691e;
-}
-.card-back[data-fruit="🧬"] {
-  background-color: #fadadd;
-  color: #8b0000;
-}
-.card-back[data-fruit="🛢️"] {
-  background-color: #fad9c3;
+} /* Amarelo suave */
+.card-back[data-fruit="🍔"] {
+  background-color: #ffe0b2;
+  color: #795548;
+} /* Bege suave */
+.card-back[data-fruit="🍟"] {
+  background-color: #ffecb3;
+  color: #ffcc00;
+} /* Amarelo suave */
+.card-back[data-fruit="🍣"] {
+  background-color: #ffebcd;
   color: #ff6347;
-}
+} /* Bege claro */
+.card-back[data-fruit="🍰"] {
+  background-color: #ffcdd2;
+  color: #e91e63;
+} /* Rosa claro */
+.card-back[data-fruit="🍩"] {
+  background-color: #d7ccc8;
+  color: #8d6e63;
+} /* Bege claro */
+.card-back[data-fruit="🍜"] {
+  background-color: #c5e1a5;
+  color: #8b0000;
+} /* Verde claro */
+.card-back[data-fruit="🍤"] {
+  background-color: #b2ebf2;
+  color: #ff6347;
+} /* Azul claro */
+
+/* Cores de fundo para sentimentos */
+.card-back[data-fruit="😀"] {
+  background-color: #ffecb3;
+  color: #d2691e;
+} /* Amarelo suave */
+.card-back[data-fruit="😔"] {
+  background-color: #b2ebf2;
+  color: #8b4513;
+} /* Azul claro */
+.card-back[data-fruit="😍"] {
+  background-color: #ffe082;
+  color: #ffcc00;
+} /* Amarelo vibrante */
+.card-back[data-fruit="😢"] {
+  background-color: #ffccbc;
+  color: #d32f2f;
+} /* Rosa claro */
+.card-back[data-fruit="🤗"] {
+  background-color: #fff9c4;
+  color: #ff69b4;
+} /* Amarelo claro */
+.card-back[data-fruit="🤔"] {
+  background-color: #c8e6c9;
+  color: #795548;
+} /* Verde claro */
+.card-back[data-fruit="🙃"] {
+  background-color: #ffe4e1;
+  color: #8b0000;
+} /* Rosa suave */
+.card-back[data-fruit="🤮"] {
+  background-color: #b2ebf2;
+  color: #ff6347;
+} /* Azul claro */
+
+/* Cores de fundo para química */
+.card-back[data-fruit="🧪"] {
+  background-color: #9fa8da;
+  color: #4a148c;
+} /* Roxo suave */
+.card-back[data-fruit="⚗️"] {
+  background-color: #80deea;
+  color: #004d40;
+} /* Azul água */
+.card-back[data-fruit="🧫"] {
+  background-color: #ffcc80;
+  color: #e65100;
+} /* Laranja suave */
+.card-back[data-fruit="💉"] {
+  background-color: #e57373;
+  color: #b71c1c;
+} /* Vermelho claro */
+.card-back[data-fruit="💊"] {
+  background-color: #b39ddb;
+  color: #311b92;
+} /* Roxo claro */
+.card-back[data-fruit="🔬"] {
+  background-color: #ce93d8;
+  color: #4a148c;
+} /* Lilás */
+.card-back[data-fruit="🧬"] {
+  background-color: #ffab91;
+  color: #d84315;
+} /* Laranja claro */
+.card-back[data-fruit="🛢️"] {
+  background-color: #bcaaa4;
+  color: #3e2723;
+} /* Marrom claro */
 
 /* Estilos para o botão de fechar no modal */
 .close-button {
