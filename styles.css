@@ -118,6 +118,8 @@ h1 {
   position: relative;
   transition: transform 0.3s ease-in-out;
   transform-style: preserve-3d;
+  user-select: none; /* Evita a seleção de texto */
+  pointer-events: none; /* Desabilita eventos de arrastar */
 }
 
 .card.flipped .card-inner {
