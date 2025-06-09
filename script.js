@@ -142,7 +142,9 @@ function showVictoryModal() {
   const finalMoves = document.getElementById("final-moves");
   finalMoves.textContent = moves;
   modal.classList.remove("hidden");
-  const modalContent = document.querySelector(".modal-content");
+  const modalContent = document.querySelector(
+    "#victory-modal .modal-content"
+  );
   setTimeout(() => modalContent.classList.add("show"), 100);
 }
 
@@ -153,7 +155,9 @@ function resetGame() {
   flippedCards = [];
   document.getElementById("moves").textContent = `Movimentos: ${moves}`;
   document.getElementById("victory-modal").classList.add("hidden");
-  document.querySelector(".modal-content").classList.remove("show");
+  document
+    .querySelector("#victory-modal .modal-content")
+    .classList.remove("show");
   animateEntry();
 }
 
@@ -190,14 +194,18 @@ function handleCategorySelection(event) {
 // Eventos de clique para fechar modais
 document.getElementById("close-victory-modal").addEventListener("click", () => {
   document.getElementById("victory-modal").classList.add("hidden");
-  document.querySelector(".modal-content").classList.remove("show");
+  document
+    .querySelector("#victory-modal .modal-content")
+    .classList.remove("show");
 });
 
 document
   .getElementById("close-category-modal")
   .addEventListener("click", () => {
     document.getElementById("category-modal").classList.add("hidden");
-    document.querySelector(".modal-content").classList.remove("show");
+    document
+      .querySelector("#category-modal .modal-content")
+      .classList.remove("show");
   });
 
 // Eventos de clique para os botões
@@ -232,6 +240,7 @@ if ("serviceWorker" in navigator) {
 window.onload = () => {
   initializeGameBoard();
   animateEntry();
+  createFallingEmojis(); // Adiciona os emojis caindo na tela inicial
 };
 
 // Emojis do jogo
@@ -273,7 +282,4 @@ function createFallingEmojis() {
 }
 
 // Chama a função para criar os emojis ao carregar a página
-window.onload = () => {
-  initializeGameBoard();
-  createFallingEmojis(); // Adiciona os emojis caindo
-};
+// (a inicialização do jogo também é feita em window.onload acima)
